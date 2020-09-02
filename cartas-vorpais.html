@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+
+    @font-face {
+      font-family: 'maurysselbold';
+      src: url('./fonts/mauryssel_bold-webfont.woff2') format('woff2'),
+           url('./fonts/mauryssel_bold-webfont.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'nusaliverregular';
+      src: url('./fonts/nusaliver-webfont.woff2') format('woff2'),
+           url('./fonts/nusaliver-webfont.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+        padding: 0;
+        color: #5a5a5a;
+    }
+
+    .navbar-brand {
+        font-family: 'maurysselbold';
+        font-size: 14px;
+    }
+
+    .badge {
+        font-family: 'maurysselbold';
+        font-size: 9px;
+        padding: 5px;
+    }
+
+    .carousel {
+        margin-bottom: 32px;
+        margin-top: 54px;
+    }
+
+    .carousel-caption {
+        bottom: 48px;
+        z-index: 10;
+    }
+
+    .carousel-item {
+        height: 440px;
+        background-color: #000;
+    }
+
+    .carousel-item > img {
+        position: absolute;
+        top: 0;
+        left: calc(50% - 128px);
+        width: auto;
+        height: 100%;
+        padding-bottom: 70px;
+        padding-top: 12px;
+    }
+
+    .marketing .col-lg-4 {
+        margin-bottom: 24px;
+        text-align: center;
+    }
+
+    .marketing h2 {
+        font-weight: 400;
+    }
+
+    .marketing .col-lg-4 p {
+        margin-right: 12px;
+        margin-left: 12px;
+    }
+
+    .featurette-divider {
+        margin: 80px 0; 
+    }
+
+    .featurette-heading {
+        font-weight: 300;
+        line-height: 1;
+        letter-spacing: -.8px;
+    }
+
+    .carousel-item.active,
+    .carousel-item-next,
+    .carousel-item-prev {
+        display: block;
+    }
+
+    .carousel-caption {
+        display: block;
+        top: 211px;
+    }
+
+    .carousel-caption p {
+        margin-bottom: 20px;
+        font-size: 9px;
+        line-height: 1.2;
+        color: #111;
+        width: 200px;
+        display: block;
+        margin-left: calc(50% - 100px);
+        padding-top: 3px;
+        font-weight: 700;
+    }
+
+    .carousel-caption p.card-name {
+        color: #111;
+        text-transform: uppercase;
+        display: block;
+        width: 230px;
+        text-align: center;
+        margin-left: calc(50% - 115px);
+        font-weight: bold;
+    }
+
+    .card-name {
+        font-family: 'maurysselbold';
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bolder;
+        font-size: 9px !important;
+    }
+
+    .card-type {
+        font-family: 'maurysselbold';
+        text-transform: uppercase;
+        font-weight: bolder;
+        font-size: 12px;
+        position: absolute;
+        bottom: 32px;
+        font-weight: 900 !important;
+    }
+
+    .card-attribute {
+        font-family: 'maurysselbold';
+        text-transform: uppercase;
+        position: absolute;
+        right: 0;
+        width: 80px !important;
+        margin-right: calc(50% - 57px);
+        text-align: right;
+        font-size: 12px;
+        bottom: 32px;
+        font-weight: 900 !important;
+    }
+
+    .card-target {
+        font-family: 'nusaliverregular';
+        position: absolute;
+        right: 0;
+        width: 40px !important;
+        margin-right: calc(50% - 95px);
+        font-size: 14px !important;
+        bottom: 34px;
+        text-align: center;
+        font-weight: 900 !important;
+        color: #fff !important;
+    }
+
+    .card-heart {
+        font-family: 'nusaliverregular';
+        position: absolute;
+        right: 0;
+        width: 40px !important;
+        margin-right: calc(50% - 23px);
+        font-size: 13px !important;
+        bottom: 15px;
+        text-align: center;
+        font-weight: 900 !important;
+        color: #fff !important;
+    }
+
+    .card-number {
+        font-family: 'nusaliverregular';
+        position: absolute;
+        right: 0;
+        width: 40px !important;
+        margin-right: calc(50% - 20px);
+        font-size: 8px !important;
+        top: -184px;
+        text-align: center;
+        font-weight: 900 !important;
+        color: #000 !important;
+    }
+
+    .card-author {
+        position: absolute;
+        margin-bottom: 20px;
+        font-size: 9px;
+        line-height: 1.2;
+        color: #111;
+        width: 220px !important;
+        display: block;
+        margin-left: calc(50% - 110px) !important;
+        bottom: 10px;
+        font-weight: 600;
+    }
+
+    .card-header {
+        font-family: 'maurysselbold';
+        font-size: 11px;
+    }
+
+    .featurette-heading {
+        font-size: 50px;
+    }
+
+    .bd-placeholder-img {
+        font-size: 18px;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    h1 {
+        font-family: 'maurysselbold';
+        font-size: 20px;
+        margin-bottom: 24px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .form-inline {
+        display: block !important;
+        width: 100%;
+    }
+
+    #filter {
+        right: 0;
+        float: right;
+    }
+
+    .blockquote p {
+        margin-top: 12px;
+        font-size: 14px;
+    }
+
+    .card-header {
+        font-weight: 700;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg { 
+         font-size: 56px;
+      }
+    }
+    </style>
+
+    <title>Cartas Vorpais</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Cartas Vorpais</a> <span class="version">v.0.8</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <form class="form-inline mt-2 mt-md-0">
+            <input id="filter" class="form-control mr-sm-2" type="text" placeholder="Filtrar">
+          </form>
+        </div>
+      </nav>
+    </header>
+    <div id="cartas" class="carousel slide" data-ride="carousel">
+      <ol id="indicadores" class="carousel-indicators"></ol>
+      <div id="slides" class="carousel-inner"></div>
+      <a class="carousel-control-prev" href="#cartas" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+      </a>
+      <a class="carousel-control-next" href="#cartas" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Próxima</span>
+      </a>
+    </div>
+    <div id="content" class="container"></div>
+  </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-google-sheet-to-json@0.1.2/jquery-google-sheet-to-json.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+     
+        $("#filter").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#content .card").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+          });
+        });
+     
+        function pad (str, max) {
+          str = str.toString();
+          return str.length < max ? pad("0" + str, max) : str;
+        }
+
+        var worksheets = [''];
+
+        worksheets.forEach(function(worksheet){
+          $.googleSheetToJSON('15OXdvfCZlEdFHIsfwFSNXAaB41Wj-iA2CUNYpkiqATs', worksheet)
+            .done(function(rows){
+
+              var n = 0;
+              var div = '<h1>Lista completa das '+rows.length+' cartas</h1>';
+              var divFinal = '';
+              var cardName = '';
+              var cardType = '';
+              var cardDesc = '';
+              var cardNote = '';
+              var cardAttr = '';
+              var cardTarg = '-';
+              var cardHeart = '-';
+              var cardImg = ''; 
+              var cardAuthor = ''; 
+              var first = ' active';
+
+              rows.forEach(function(row){
+                var $li = $('<li>');
+                Object.getOwnPropertyNames(row).forEach(function(name){
+                  var val = [].concat(row[name]).join(' / ');
+                  $li.attr("data-target", "#cartas");
+                  $li.attr("data-slide-to", n);
+                  if(n===0) {
+                    $li.attr("class", "active");
+                  }
+                  switch(name) {
+                    case 'nome':
+                      cardName = val;
+                      break;
+                    case 'tipo':
+                      cardType = val;
+                      break;
+                    case 'descrição':
+                      cardDesc = val;
+                      break;
+                    case 'anotações':
+                      if(val != "") { cardNote = '<footer class="blockquote-footer">ANOTAÇÕES: <cite title="Source Title">'+val+'</cite></footer>'; }
+                      break;
+                    case 'atributo':
+                      cardAttr = val;
+                      break;
+                    case 'alvo':
+                      if(val != "") { cardTarg = val; }
+                      break;
+                    case 'coração':
+                      if(val != "") { cardHeart = val; }
+                      break;
+                    case 'autor':
+                      cardAuthor = 'Criado por: '+val;
+                      break;
+                    default:
+                      // nada
+                  }
+                });
+
+                if(n!=0) { first = ''; }
+
+                div = div+
+                '<div class="card">'+
+                  '<div class="card-header">'+
+                    pad((n+1), 3)+' - '+cardName+
+                  '</div>'+
+                  '<div class="card-body">'+
+                    '<blockquote class="blockquote mb-0">'+
+                      '<span class="badge badge-secondary">'+cardType+'</span>'+
+                      '<p>'+cardDesc+'</p>'+
+                        cardNote+
+                    '</blockquote>'+
+                  '</div>'+
+                '</div>';
+
+                $('#indicadores').append($li);
+
+                divFinal = divFinal+
+                '<div class="carousel-item'+first+'">'+
+                  '<img src="https://i.imgur.com/cjxfFAj.png" class="img-fluid"/>'+
+                  '<div class="container">'+
+                    '<div class="carousel-caption text-left">'+
+                      '<p class="card-name">'+cardName+'</p>'+
+                      '<p>'+cardDesc+'</p>'+
+                      '<p class="card-type">'+cardType+'</p>'+
+                      '<p class="card-attribute">'+cardAttr+'</p>'+
+                      '<p class="card-target">'+cardTarg+'</p>'+
+                      '<p class="card-heart">'+cardHeart+'</p>'+
+                      '<p class="card-number">TV'+pad((n+1), 3)+'</p>'+
+                      '<p class="card-author">'+cardAuthor+'</p>'+
+                    '</div>'+
+                  '</div>'+
+                '</div>';
+
+                cardNote = '';
+                cardAttr = '';
+                cardTarg = '-';
+                cardHeart = '-';
+                cardImg = ''; 
+                cardAuthor = ''; 
+                n++;
+
+              });
+              $('#content').append(div);
+              $('#slides').append(divFinal);
+
+            })
+            .fail(function(err){
+              console.log('error!', err);
+            });
+        });
+      });
+    </script>
+</html>
