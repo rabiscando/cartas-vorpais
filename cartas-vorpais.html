@@ -55,14 +55,23 @@
         background-color: #000;
     }
 
-    .carousel-item > img {
+    .carousel-item > .full-card {
         position: absolute;
         top: 0;
         left: calc(50% - 142px);
         width: auto;
         height: 100%;
         padding-bottom: 70px;
-        padding-top: 12px;
+        padding-top: 20px;
+    }
+
+    .carousel-item > .icon {
+        position: absolute;
+        top: 53px;
+        left: calc(50% - 105px);
+        width: 100%;
+        height: auto;
+        max-width: 210px;
     }
 
     .marketing .col-lg-4 {
@@ -343,6 +352,9 @@
                     case 'atributo':
                       cardAttr = val;
                       break;
+                    case 'img':
+                      if(val != "") { cardImg = '<img src="'+val+'" class="img-fluid icon"/>'; }
+                      break;
                     case 'alvo':
                       if(val != "") { cardTarg = val; }
                       break;
@@ -377,7 +389,8 @@
 
                 divFinal = divFinal+
                 '<div class="carousel-item'+first+'">'+
-                  '<img src="https://i.imgur.com/cjxfFAj.png" class="img-fluid"/>'+
+                  '<img src="https://i.imgur.com/cjxfFAj.png" class="img-fluid full-card"/>'+
+                  cardImg+
                   '<div class="container">'+
                     '<div class="carousel-caption text-left">'+
                       '<p class="card-name">'+cardName+'</p>'+
